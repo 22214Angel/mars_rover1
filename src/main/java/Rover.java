@@ -22,6 +22,9 @@ public class Rover {
             case 'N':
                 newDirection = 'W';
                 break;
+            case 'S':
+                newDirection = 'E';
+                break;
             }
         }
         return new Rover(newDirection);
