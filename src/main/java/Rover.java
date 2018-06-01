@@ -9,7 +9,16 @@ public class Rover {
     }
 
     public Rover applyAction(char action) {
-        return new Rover('N');
+        char newDirection = '\0';
+        switch (action) {
+        case 'L':
+            if (direction == 'E') {
+                newDirection = 'N';
+            } else if (direction == 'W') {
+                newDirection = 'S';
+            }
+        }
+        return new Rover(newDirection);
     }
 
     @Override

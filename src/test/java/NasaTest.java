@@ -13,4 +13,14 @@ public class NasaTest {
 
         assertEquals(true, result.equals(rover.applyAction(action)));
     }
+
+    @Test
+    public void shouldReturnTrueGivenCurrentDirectionWestAndActionLeft() {
+        char currentDirection = 'W';
+        Rover rover = new Rover(currentDirection);
+        Rover result = new Rover('S');
+        char action = 'L';
+
+        assertEquals(true, result.equals(rover.applyAction(action)));
+    }
 }
