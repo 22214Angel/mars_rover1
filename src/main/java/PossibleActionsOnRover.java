@@ -1,3 +1,3 @@
 public enum PossibleActionsOnRover {
-    LEFT, RIGHT
+    LEFT, RIGHT, MOVE
 }

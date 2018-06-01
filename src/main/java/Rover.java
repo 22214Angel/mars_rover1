@@ -1,9 +1,11 @@
 import java.util.Objects;
 
 public class Rover {
+    private int x;
     private RoverDirection direction;
 
-    public Rover(RoverDirection direction) {
+    public Rover(int x, RoverDirection direction) {
+        this.x = x;
         this.direction = direction;
     }
 

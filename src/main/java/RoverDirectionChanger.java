@@ -45,6 +45,6 @@ public class RoverDirectionChanger implements Changeable{
                 }
                 break;
         }
-        return new Rover(newDirection);
+        return new Rover(0, newDirection);
     }
 }
