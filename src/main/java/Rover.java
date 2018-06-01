@@ -9,18 +9,20 @@ public class Rover {
         this.direction = direction;
     }
 
-    private Changeable selectRover(PossibleActionsOnRover action, RoverDirection direction) {
+    private Changeable selectRover(PossibleActionsOnRover action) {
         switch (action) {
             case LEFT:
             case RIGHT:
                 return new RoverDirectionChanger(action, direction);
+            case MOVE:
+                return new RoverCoordinateChanger(x);
         }
         return null;
     }
 
     public Rover changeRover(PossibleActionsOnRover action) {
-        Changeable directionChanger = selectRover(action, direction);
-        return directionChanger.applyAction();
+        Changeable selectedRover = selectRover(action);
+        return selectedRover.applyAction();
     }
 
     @Override
