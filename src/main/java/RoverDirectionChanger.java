@@ -27,6 +27,23 @@ public class RoverDirectionChanger implements Changeable{
                         newDirection = RoverDirection.EAST;
                         break;
                 }
+                break;
+            case RIGHT:
+                switch (currentDirection) {
+                    case EAST:
+                        newDirection = RoverDirection.SOUTH;
+                        break;
+                    case WEST:
+                        newDirection = RoverDirection.NORTH;
+                        break;
+                    case NORTH:
+                        newDirection = RoverDirection.EAST;
+                        break;
+                    case SOUTH:
+                        newDirection = RoverDirection.WEST;
+                        break;
+                }
+                break;
         }
         return new Rover(newDirection);
     }
