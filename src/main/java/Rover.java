@@ -9,7 +9,7 @@ public class Rover {
     }
 
     public Rover applyAction(char action) {
-        return null;
+        return new Rover('N');
     }
 
     @Override
