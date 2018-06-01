@@ -1,22 +1,22 @@
 import java.util.Objects;
 
 public class Rover {
-    private char direction;
+    private RoverDirection direction;
 
-    public Rover(char direction) {
+    public Rover(RoverDirection direction) {
         this.direction = direction;
     }
 
-    private Changeable selectRover(char action, char direction) {
+    private Changeable selectRover(PossibleActionsOnRover action, RoverDirection direction) {
         switch (action) {
-            case 'L':
-            case 'R':
+            case LEFT:
+            case RIGHT:
                 return new RoverDirectionChanger(action, direction);
         }
         return null;
     }
 
-    public Rover changeRover(char action) {
+    public Rover changeRover(PossibleActionsOnRover action) {
         Changeable directionChanger = selectRover(action, direction);
         return directionChanger.applyAction();
     }

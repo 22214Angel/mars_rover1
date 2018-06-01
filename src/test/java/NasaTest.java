@@ -6,40 +6,36 @@ public class NasaTest {
 
     @Test
     public void shouldReturnTrueGivenCurrentDirectionEastAndActionLeft() {
-        char currentDirection = 'E';
-        Rover rover = new Rover(currentDirection);
-        Rover result = new Rover('N');
-        char action = 'L';
+        Rover rover = new Rover(RoverDirection.EAST);
+        Rover result = new Rover(RoverDirection.NORTH);
+        PossibleActionsOnRover action = PossibleActionsOnRover.LEFT;
 
         assertEquals(true, result.equals(rover.changeRover(action)));
     }
 
     @Test
     public void shouldReturnTrueGivenCurrentDirectionWestAndActionLeft() {
-        char currentDirection = 'W';
-        Rover rover = new Rover(currentDirection);
-        Rover result = new Rover('S');
-        char action = 'L';
+        Rover rover = new Rover(RoverDirection.WEST);
+        Rover result = new Rover(RoverDirection.SOUTH);
+        PossibleActionsOnRover action = PossibleActionsOnRover.LEFT;
 
         assertEquals(true, result.equals(rover.changeRover(action)));
     }
 
     @Test
     public void shouldReturnTrueGivenCurrentDirectionNorthAndActionLeft() {
-        char currentDirection = 'N';
-        Rover rover = new Rover(currentDirection);
-        Rover result = new Rover('W');
-        char action = 'L';
+        Rover rover = new Rover(RoverDirection.NORTH);
+        Rover result = new Rover(RoverDirection.WEST);
+        PossibleActionsOnRover action = PossibleActionsOnRover.LEFT;
 
         assertEquals(true, result.equals(rover.changeRover(action)));
     }
 
     @Test
     public void shouldReturnTrueGivenCurrentDirectionSouthAndActionLeft() {
-        char currentDirection = 'N';
-        Rover rover = new Rover(currentDirection);
-        Rover result = new Rover('W');
-        char action = 'L';
+        Rover rover = new Rover(RoverDirection.SOUTH);
+        Rover result = new Rover(RoverDirection.EAST);
+        PossibleActionsOnRover action = PossibleActionsOnRover.LEFT;
 
         assertEquals(true, result.equals(rover.changeRover(action)));
     }

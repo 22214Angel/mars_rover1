@@ -1,30 +1,30 @@
 public class RoverDirectionChanger implements Changeable{
 
-    private char actionToBeDone;
-    private char currentDirection;
+    private PossibleActionsOnRover actionToBeDone;
+    private RoverDirection currentDirection;
 
-    public RoverDirectionChanger(char actionToBeDone, char currentDirection) {
+    public RoverDirectionChanger(PossibleActionsOnRover actionToBeDone, RoverDirection currentDirection) {
         this.actionToBeDone = actionToBeDone;
         this.currentDirection = currentDirection;
     }
 
     @Override
     public Rover applyAction() {
-        char newDirection = '\0';
+        RoverDirection newDirection = null;
         switch (actionToBeDone) {
-            case 'L':
+            case LEFT:
                 switch (currentDirection) {
-                    case 'E':
-                        newDirection = 'N';
+                    case EAST:
+                        newDirection = RoverDirection.NORTH;
                         break;
-                    case 'W':
-                        newDirection = 'S';
+                    case WEST:
+                        newDirection = RoverDirection.SOUTH;
                         break;
-                    case 'N':
-                        newDirection = 'W';
+                    case NORTH:
+                        newDirection = RoverDirection.WEST;
                         break;
-                    case 'S':
-                        newDirection = 'E';
+                    case SOUTH:
+                        newDirection = RoverDirection.EAST;
                         break;
                 }
         }
