@@ -12,10 +12,16 @@ public class Rover {
         char newDirection = '\0';
         switch (action) {
         case 'L':
-            if (direction == 'E') {
+            switch (direction) {
+            case 'E':
                 newDirection = 'N';
-            } else if (direction == 'W') {
+                break;
+            case 'W':
                 newDirection = 'S';
+                break;
+            case 'N':
+                newDirection = 'W';
+                break;
             }
         }
         return new Rover(newDirection);
