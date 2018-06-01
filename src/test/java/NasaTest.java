@@ -11,7 +11,7 @@ public class NasaTest {
         Rover result = new Rover('N');
         char action = 'L';
 
-        assertEquals(true, result.equals(rover.applyAction(action)));
+        assertEquals(true, result.equals(rover.changeRover(action)));
     }
 
     @Test
@@ -21,7 +21,7 @@ public class NasaTest {
         Rover result = new Rover('S');
         char action = 'L';
 
-        assertEquals(true, result.equals(rover.applyAction(action)));
+        assertEquals(true, result.equals(rover.changeRover(action)));
     }
 
     @Test
@@ -31,7 +31,7 @@ public class NasaTest {
         Rover result = new Rover('W');
         char action = 'L';
 
-        assertEquals(true, result.equals(rover.applyAction(action)));
+        assertEquals(true, result.equals(rover.changeRover(action)));
     }
 
     @Test
@@ -41,6 +41,6 @@ public class NasaTest {
         Rover result = new Rover('W');
         char action = 'L';
 
-        assertEquals(true, result.equals(rover.applyAction(action)));
+        assertEquals(true, result.equals(rover.changeRover(action)));
     }
 }
