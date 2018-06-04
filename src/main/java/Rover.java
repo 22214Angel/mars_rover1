@@ -2,10 +2,12 @@ import java.util.Objects;
 
 public class Rover {
     private int x;
+    private int y;
     private RoverDirection direction;
 
-    public Rover(int x, RoverDirection direction) {
+    public Rover(int x, int y, RoverDirection direction) {
         this.x = x;
+        this.y = y;
         this.direction = direction;
     }
 
@@ -13,9 +15,9 @@ public class Rover {
         switch (action) {
             case LEFT:
             case RIGHT:
-                return new RoverDirectionChanger(action, direction, x);
+                return new RoverDirectionChanger(action, direction, x, y);
             case MOVE:
-                return new RoverCoordinateChanger(x, direction);
+                return new RoverCoordinateChanger(x, y, direction);
         }
         return null;
     }
@@ -30,7 +32,7 @@ public class Rover {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Rover rover = (Rover) o;
-        return direction == rover.direction && x == rover.x;
+        return direction == rover.direction && x == rover.x && y == rover.y;
     }
 
     @Override

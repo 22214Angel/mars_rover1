@@ -3,11 +3,13 @@ public class RoverDirectionChanger implements Changeable{
     private PossibleActionsOnRover actionToBeDone;
     private RoverDirection currentDirection;
     private int x;
+    private int y;
 
-    public RoverDirectionChanger(PossibleActionsOnRover actionToBeDone, RoverDirection currentDirection, int x) {
+    public RoverDirectionChanger(PossibleActionsOnRover actionToBeDone, RoverDirection currentDirection, int x, int y) {
         this.actionToBeDone = actionToBeDone;
         this.currentDirection = currentDirection;
         this.x = x;
+        this.y = y;
     }
 
     @Override
@@ -47,6 +49,6 @@ public class RoverDirectionChanger implements Changeable{
                 }
                 break;
         }
-        return new Rover(x, newDirection);
+        return new Rover(x, y, newDirection);
     }
 }

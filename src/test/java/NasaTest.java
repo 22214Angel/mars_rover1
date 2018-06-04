@@ -5,8 +5,8 @@ public class NasaTest {
 
     @Test
     public void shouldReturnTrueGivenCurrentDirectionEastAndActionLeft() {
-        Rover rover = new Rover(1, RoverDirection.EAST);
-        Rover result = new Rover(1, RoverDirection.NORTH);
+        Rover rover = new Rover(1, 0, RoverDirection.EAST);
+        Rover result = new Rover(1, 0, RoverDirection.NORTH);
         PossibleActionsOnRover action = PossibleActionsOnRover.LEFT;
 
         assertEquals(true, result.equals(rover.changeRover(action)));
@@ -14,8 +14,8 @@ public class NasaTest {
 
     @Test
     public void shouldReturnTrueGivenCurrentDirectionNorthAndActionLeft() {
-        Rover rover = new Rover(1, RoverDirection.NORTH);
-        Rover result = new Rover(1, RoverDirection.WEST);
+        Rover rover = new Rover(1, 0, RoverDirection.NORTH);
+        Rover result = new Rover(1, 0, RoverDirection.WEST);
         PossibleActionsOnRover action = PossibleActionsOnRover.LEFT;
 
         assertEquals(true, result.equals(rover.changeRover(action)));
@@ -23,8 +23,8 @@ public class NasaTest {
 
     @Test
     public void shouldReturnTrueGivenCurrentDirectionWestAndActionLeft() {
-        Rover rover = new Rover(1, RoverDirection.WEST);
-        Rover result = new Rover(1, RoverDirection.SOUTH);
+        Rover rover = new Rover(1, 0, RoverDirection.WEST);
+        Rover result = new Rover(1, 0, RoverDirection.SOUTH);
         PossibleActionsOnRover action = PossibleActionsOnRover.LEFT;
 
         assertEquals(true, result.equals(rover.changeRover(action)));
@@ -32,8 +32,8 @@ public class NasaTest {
 
     @Test
     public void shouldReturnTrueGivenCurrentDirectionSouthAndActionLeft() {
-        Rover rover = new Rover(1, RoverDirection.SOUTH);
-        Rover result = new Rover(1, RoverDirection.EAST);
+        Rover rover = new Rover(1, 0, RoverDirection.SOUTH);
+        Rover result = new Rover(1, 0, RoverDirection.EAST);
         PossibleActionsOnRover action = PossibleActionsOnRover.LEFT;
 
         assertEquals(true, result.equals(rover.changeRover(action)));
@@ -41,8 +41,8 @@ public class NasaTest {
 
     @Test
     public void shouldReturnTrueGivenCurrentDirectionNorthAndActionRight() {
-        Rover rover = new Rover(2, RoverDirection.NORTH);
-        Rover result = new Rover(2, RoverDirection.WEST);
+        Rover rover = new Rover(2, 2, RoverDirection.NORTH);
+        Rover result = new Rover(2, 2, RoverDirection.WEST);
         PossibleActionsOnRover action = PossibleActionsOnRover.LEFT;
 
         assertEquals(true, result.equals(rover.changeRover(action)));
@@ -50,8 +50,8 @@ public class NasaTest {
 
     @Test
     public void shouldReturnTrueGivenCurrentDirectionEastAndActionRight() {
-        Rover rover = new Rover(1, RoverDirection.SOUTH);
-        Rover result = new Rover(1, RoverDirection.EAST);
+        Rover rover = new Rover(1, 0, RoverDirection.SOUTH);
+        Rover result = new Rover(1, 0, RoverDirection.EAST);
         PossibleActionsOnRover action = PossibleActionsOnRover.LEFT;
 
         assertEquals(true, result.equals(rover.changeRover(action)));
@@ -59,8 +59,8 @@ public class NasaTest {
 
     @Test
     public void shouldReturnTrueGivenCurrentDirectionWestAndActionRight() {
-        Rover rover = new Rover(1, RoverDirection.WEST);
-        Rover result = new Rover(1, RoverDirection.SOUTH);
+        Rover rover = new Rover(1, 2, RoverDirection.WEST);
+        Rover result = new Rover(1, 2, RoverDirection.SOUTH);
         PossibleActionsOnRover action = PossibleActionsOnRover.LEFT;
 
         assertEquals(true, result.equals(rover.changeRover(action)));
@@ -68,17 +68,53 @@ public class NasaTest {
 
     @Test
     public void shouldReturnTrueGivenCurrentDirectionSouthAndActionRight() {
-        Rover rover = new Rover(2, RoverDirection.SOUTH);
-        Rover result = new Rover(2, RoverDirection.WEST);
+        Rover rover = new Rover(2, 1, RoverDirection.SOUTH);
+        Rover result = new Rover(2, 1, RoverDirection.WEST);
         PossibleActionsOnRover action = PossibleActionsOnRover.RIGHT;
 
         assertEquals(true, result.equals(rover.changeRover(action)));
     }
 
     @Test
-    public void shouldReturnTrueGivenXAsOneAndActionMove() {
-        Rover rover = new Rover(1, RoverDirection.SOUTH);
-        Rover result = new Rover(2, RoverDirection.SOUTH);
+    public void shouldReturnTrueGivenXAsOneWithDirectionEastAndActionMove() {
+        Rover rover = new Rover(1, 0, RoverDirection.EAST);
+        Rover result = new Rover(2, 0, RoverDirection.EAST);
+        PossibleActionsOnRover action = PossibleActionsOnRover.MOVE;
+
+        assertEquals(true, result.equals(rover.changeRover(action)));
+    }
+
+    @Test
+    public void shouldReturnTrueGivenXAsOneWithDirectionNorthAndActionMove() {
+        Rover rover = new Rover(1, 0, RoverDirection.WEST);
+        Rover result = new Rover(0, 0, RoverDirection.WEST);
+        PossibleActionsOnRover action = PossibleActionsOnRover.MOVE;
+
+        assertEquals(true, result.equals(rover.changeRover(action)));
+    }
+
+    @Test
+    public void shouldReturnFalseGivenXAsThreeAndActionMoveWithoutDirectionChange() {
+        Rover rover = new Rover(3, 0, RoverDirection.EAST);
+        Rover result = new Rover(4, 0, RoverDirection.WEST);
+        PossibleActionsOnRover action = PossibleActionsOnRover.MOVE;
+
+        assertEquals(false, result.equals(rover.changeRover(action)));
+    }
+
+    @Test
+    public void shouldReturnTrueGivenYAsOneWithDirectionNorthAndActionMove() {
+        Rover rover = new Rover(0, 1, RoverDirection.NORTH);
+        Rover result = new Rover(0, 2, RoverDirection.NORTH);
+        PossibleActionsOnRover action = PossibleActionsOnRover.MOVE;
+
+        assertEquals(true, result.equals(rover.changeRover(action)));
+    }
+
+    @Test
+    public void shouldReturnTrueGivenYAsOneWithDirectionSouthAndActionMove() {
+        Rover rover = new Rover(0, 1, RoverDirection.SOUTH);
+        Rover result = new Rover(0, 0, RoverDirection.SOUTH);
         PossibleActionsOnRover action = PossibleActionsOnRover.MOVE;
 
         assertEquals(true, result.equals(rover.changeRover(action)));
