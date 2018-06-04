@@ -119,5 +119,16 @@ public class NasaTest {
 
         assertEquals(true, result.equals(rover.changeRover(action)));
     }
+
+    @Test
+    public void shouldReturnTrueGivenXandYAsTwoWithDirectionSouthAndActionMoveFollowedByLeft() {
+        Rover rover = new Rover(2, 2, RoverDirection.SOUTH);
+        Rover result = new Rover(2, 1, RoverDirection.EAST);
+        PossibleActionsOnRover action1 = PossibleActionsOnRover.MOVE;
+        PossibleActionsOnRover action2 = PossibleActionsOnRover.LEFT;
+        Rover roverAfterMoves = rover.changeRover(action1).changeRover(action2);
+
+        assertEquals(true, result.equals(roverAfterMoves));
+    }
 }
 
