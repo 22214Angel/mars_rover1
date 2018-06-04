@@ -13,9 +13,9 @@ public class Rover {
         switch (action) {
             case LEFT:
             case RIGHT:
-                return new RoverDirectionChanger(action, direction);
+                return new RoverDirectionChanger(action, direction, x);
             case MOVE:
-                return new RoverCoordinateChanger(x);
+                return new RoverCoordinateChanger(x, direction);
         }
         return null;
     }
@@ -30,7 +30,7 @@ public class Rover {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Rover rover = (Rover) o;
-        return direction == rover.direction;
+        return direction == rover.direction && x == rover.x;
     }
 
     @Override
